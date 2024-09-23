@@ -121,6 +121,24 @@
 		$('#username').on('blur', async function() {
 			await usernameCheck();
 		});
+
+		$('#password').on('blur', ()=>passwordCheck());
+		$('#password2').on('blur', ()=>password2Check());
+		$('#email').on('blur', ()=>emailCheck());
+		
+		$('#join').click(async function() {
+			const r1 = await usernameCheck();
+			const r2 = passwordCheck();
+			const r3 = password2Check();
+			const r4 = emailCheck();
+			
+			const checkResult = r1 && r2 && r3 && r4;
+			
+			if(checkResult==true) {
+				alert("회원가입합니다");
+			}
+			
+		})
 	</script>			
 </body>
 </html>
